@@ -24,6 +24,7 @@ function SigninPage() {
     const [passwordError,setPasswordError] = useState('')
     const [dobError,setDobError] = useState('')
     const [error,setError] = useState('')
+    const [preview,setPreview] = useState('')
     const navigate = useNavigate()
 
 
@@ -117,6 +118,10 @@ function SigninPage() {
 
     const profilePicCheck = (profilevalue)=>{
         setProfilePic(profilevalue)
+        if(profilevalue){
+            const objectUrl = URL.createObjectURL(profilevalue)
+            setPreview(objectUrl)
+        }
         if(profilevalue == ''){
             setProfilePicError('required field')
             return false
@@ -203,8 +208,8 @@ function SigninPage() {
         <div>
             {(changeWindow)?(
                 <SigninComponentsTwo passwordCheck={passwordCheck} addressCheck={addressCheck} profilePicCheck={profilePicCheck}
-                    dateOfBirthCheck={dateOfBirthCheck} setChangeWindow={setChangeWindow} password={password} address={address} profilePic={profilePic} dob={dob} 
-                    passwordError={passwordError} profilePicError={profilePicError} error={error} dobError={dobError} addressError={addressError} handleSubmit={handleSubmit} navigate={navigate}/>
+                    dateOfBirthCheck={dateOfBirthCheck} setChangeWindow={setChangeWindow} password={password} address={address} dob={dob} 
+                    passwordError={passwordError} profilePicError={profilePicError} error={error} dobError={dobError} addressError={addressError} handleSubmit={handleSubmit} preview={preview} navigate={navigate}/>
                 ):
                 (<SigninComponentsOne  emailCheck={emailCheck} mobileNumberCheck={mobileNumberCheck} firstNameCheck={firstNameCheck} 
                     lastNameCheck={lastNameCheck} handleContinue={handleContinue} email={email} mobileNumber={mobileNumber}

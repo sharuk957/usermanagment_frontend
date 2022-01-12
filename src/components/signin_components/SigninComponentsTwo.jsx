@@ -7,9 +7,9 @@ function SigninComponentsTwo(props) {
             <form className="form">
             <div className="input-group">
                     <div className='custom-file'>
-                        <input className='custom' type="file" id='file' name="profile_pic" src={props.profilePic} onChange={(e)=>{props.profilePicCheck(e.target.files[0])}}/>
+                        <input className='custom' type="file" id='file' name="profile_pic"  onChange={(e)=>{props.profilePicCheck(e.target.files[0])}}/>
                         <label htmlFor="file">Choose an image</label>
-                        <img src={props.profilePic} id='profile_id'></img>
+                        <img src={props.preview} id='profile_id'></img>
                     </div>
                     <p>{props.profilePicError}</p>
                 </div>
