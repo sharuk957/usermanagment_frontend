@@ -87,7 +87,7 @@ function SigninPage() {
             setMobileError('Required field')
             return false
         }
-        else if(!mobilenumber.match(/^[+91-]+[0-9][-\s\./0-9]*$/g)){
+        else if(!mobilenumber.match(/^\+[0-9]{1,2}-+[0-9][-\s\./0-9]*$/g)){
             setMobileError("invalid format")
             return false
         }
