@@ -6,6 +6,7 @@ import axios from 'axios'
 function HomeComponent(props) {
     const [userData, setUserData] = useState('')
     const [token, seToken] = useState(localStorage.getItem('token'))
+
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/accounts',{ headers: {"Authorization" : `Bearer ${token}`} })
         .then((res)=>{
@@ -39,6 +40,7 @@ function HomeComponent(props) {
                         </tr>
                     </thead>
                     <tbody>
+                        
                         {(userData)?(userData.map((value,key)=>{return(
                             <tr key={key}>
                                 <td><img src={value.profile_pic} alt="profile" style={{width:"100px",height:"100px"}} /></td>

@@ -29,6 +29,7 @@ function SigninComponentsOne(props) {
                 
             </form>
             <button className="primary" onClick={()=>{props.handleContinue()}}>Continue</button>
+            <p>{props.error}</p>
             <button className="secondary" onClick={()=>{
                 props.navigate('/')
             }}>

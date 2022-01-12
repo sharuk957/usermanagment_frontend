@@ -40,6 +40,10 @@ function SigninComponentsTwo(props) {
             <button className="primary" onClick={()=>{
                     props.handleSubmit()
                 }}>Submit</button>
+                <p>{props.error}</p>
+                <button className="primary" onClick={()=>{
+                    props.setChangeWindow(false)
+                }}>Back</button>
             <button className="secondary" onClick={()=>{
                 props.navigate('/')
             }}>

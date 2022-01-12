@@ -56,7 +56,7 @@ function LoginPage() {
                 navigate('/Home')
             })
             .catch((error)=>{
-                console.log("hjhjh")
+                setError("Invalid credentials")
             })
 
         }

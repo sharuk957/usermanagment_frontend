@@ -163,14 +163,16 @@ function SigninPage() {
         
     }
     const handleSubmit = ()=>{
-        console.log("hi")
+
         const profileFlag = profilePicCheck(profilePic)
         const addressFlag = addressCheck(address)
         const dobFlag = dateOfBirthCheck(dob)
         const passwordFlag = passwordCheck(password)
+
         if (profileFlag && addressFlag  && dobFlag && passwordFlag){
             
             const uploadData = new FormData();
+
             uploadData.append('first_name',firstName)
             uploadData.append('last_name',lastName)
             uploadData.append('email',email)
@@ -183,10 +185,11 @@ function SigninPage() {
             axios.post('http://127.0.0.1:8000/registration/',uploadData)
             .then((res)=>{
                 console.log(res)
+                alert('user registered successfully')
                 navigate('/')
             })
             .catch((error)=>{
-                console.log('')
+                setError("email id already registered")
             })
         }
     }
@@ -200,8 +203,8 @@ function SigninPage() {
         <div>
             {(changeWindow)?(
                 <SigninComponentsTwo passwordCheck={passwordCheck} addressCheck={addressCheck} profilePicCheck={profilePicCheck}
-                    dateOfBirthCheck={dateOfBirthCheck} password={password} address={address} profilePic={profilePic} dob={dob} 
-                    passwordError={passwordError} profilePicError={profilePicError} dobError={dobError} addressError={addressError} handleSubmit={handleSubmit} navigate={navigate}/>
+                    dateOfBirthCheck={dateOfBirthCheck} setChangeWindow={setChangeWindow} password={password} address={address} profilePic={profilePic} dob={dob} 
+                    passwordError={passwordError} profilePicError={profilePicError} error={error} dobError={dobError} addressError={addressError} handleSubmit={handleSubmit} navigate={navigate}/>
                 ):
                 (<SigninComponentsOne  emailCheck={emailCheck} mobileNumberCheck={mobileNumberCheck} firstNameCheck={firstNameCheck} 
                     lastNameCheck={lastNameCheck} handleContinue={handleContinue} email={email} mobileNumber={mobileNumber}
